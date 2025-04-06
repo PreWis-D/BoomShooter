@@ -3,7 +3,7 @@ using Zenject;
 
 public class LevelInstaller : MonoInstaller
 {
-    [SerializeField] private UIHandler _uiHandlerPrefab;
+    [SerializeField] private GameUIHandler _uiHandlerPrefab;
 
     public override void InstallBindings()
     {
@@ -11,6 +11,7 @@ public class LevelInstaller : MonoInstaller
         BindUIHandler();
         BindSceneLoader();
         BindLevel();
+        BindGameUIBusEvent();
     }
 
     private void BindPlayerInput()
@@ -20,7 +21,7 @@ public class LevelInstaller : MonoInstaller
 
     private void BindUIHandler()
     {
-        Container.Bind<UIHandler>().FromComponentInNewPrefab(_uiHandlerPrefab).AsSingle();
+        Container.Bind<GameUIHandler>().FromComponentInNewPrefab(_uiHandlerPrefab).AsSingle();
     }
 
     private void BindSceneLoader()
@@ -31,5 +32,10 @@ public class LevelInstaller : MonoInstaller
     private void BindLevel()
     {
         Container.Bind<Level>().AsSingle();
+    }
+
+    private void BindGameUIBusEvent()
+    {
+        Container.Bind<GameUIBusEvent>().AsSingle();
     }
 }

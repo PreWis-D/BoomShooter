@@ -1,7 +1,7 @@
 using UnityEngine;
 using Zenject;
 
-public class EntryPointMeta : MonoBehaviour
+public class MetaEntryPoint : MonoBehaviour
 {
     private MetaUIHandler _uiHandler;
 

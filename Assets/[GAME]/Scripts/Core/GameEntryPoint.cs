@@ -1,17 +1,17 @@
 using UnityEngine;
 using Zenject;
 
-public class EntryPoint : MonoBehaviour
+public class GameEntryPoint : MonoBehaviour
 {
     [SerializeField] private CamController _camController;
 
     private GameConfig _gameConfig;
-    private UIHandler _uIHandler;
+    private GameUIHandler _uIHandler;
     private Level _level;
     private PlayerInput _inputActions;
 
     [Inject]
-    private void Consruct(GameConfig gameConfig, UIHandler uIHandler, Level level, PlayerInput inputActions)
+    private void Consruct(GameConfig gameConfig, GameUIHandler uIHandler, Level level, PlayerInput inputActions)
     {
         _gameConfig = gameConfig;
         _uIHandler = uIHandler;
