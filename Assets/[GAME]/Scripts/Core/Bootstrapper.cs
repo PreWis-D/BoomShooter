@@ -1,15 +1,17 @@
 using UnityEngine;
-using UnityEngine.SceneManagement;
 
 public class Bootstrapper : MonoBehaviour
 {
+    private SceneLoader _loader;
+
     private void Start()
     {
+        _loader = new();    
         StartGame();
     }
 
     private void StartGame()
     {
-        SceneManager.LoadScene(1);
+        _loader.LoadScene(SceneType.Meta);
     }
 }
